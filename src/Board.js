@@ -7,6 +7,11 @@ import Button from 'react-bootstrap/Button';
 
 import './globalstyles.css';
 
+/*
+- Check for win/draw conditions
+- Do something better than alert for addressing an illegal move 
+*/
+
 class Board extends Component {
     constructor(props) {
         super(props);
@@ -18,15 +23,26 @@ class Board extends Component {
         }
         this.editGrid = this.editGrid.bind(this);
         this.switchPlayer = this.switchPlayer.bind(this);
+        this.checkSpaceVacant = this.checkSpaceVacant.bind(this);
     }
 
     editGrid(pos) {
-        // if(this.state.currentPlayer == '') {
-
-        // }
-        this.setState({
-            [pos]: this.state.currentPlayer,
-        }, this.switchPlayer())
+        if(this.checkSpaceVacant(pos)) {
+            this.setState({
+                [pos]: this.state.currentPlayer,
+            }, this.switchPlayer())
+        } else {
+            alert("This turn is not legal, please try again.");
+        }
+    }
+    
+    checkSpaceVacant(pos) {
+        console.log(this.state[pos]);
+        if(this.state[pos]) {
+            return false; 
+        } else {
+            return true;
+        }
     }
 
     switchPlayer() {
