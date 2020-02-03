@@ -14,33 +14,49 @@ class Board extends Component {
             1:'', 2:'', 3:'',
             4:'', 5:'', 6:'',
             7:'', 8:'', 9:'',
+            currentPlayer: 'x'
         }
         this.editGrid = this.editGrid.bind(this);
+        this.switchPlayer = this.switchPlayer.bind(this);
     }
 
     editGrid(pos) {
-        console.log(pos);
+        // if(this.state.currentPlayer == '') {
+
+        // }
         this.setState({
-            [pos]:'x',
-        })
+            [pos]: this.state.currentPlayer,
+        }, this.switchPlayer())
+    }
+
+    switchPlayer() {
+        if(this.state.currentPlayer == 'x') {
+            this.setState({
+                currentPlayer: 'o'
+            })
+        } else {
+            this.setState({
+                currentPlayer: 'x'
+            })
+        }
     }
 
     render() {
         return (<Container fluid>
             <Row noGutters>
-                <Col md="auto" className="col-edit"><Space pos={1} editGrid={this.editGrid} /></Col>
-                <Col md="auto" className="col-edit"><Space pos={2} editGrid={this.editGrid}/></Col>
-                <Col md="auto" className="col-edit"><Space pos={3} editGrid={this.editGrid}/></Col>
+                <Col md="auto" className="col-edit"><Space pos={1} editGrid={this.editGrid} symbol={this.state[1]}/></Col>
+                <Col md="auto" className="col-edit"><Space pos={2} editGrid={this.editGrid} symbol={this.state[2]}/></Col>
+                <Col md="auto" className="col-edit"><Space pos={3} editGrid={this.editGrid} symbol={this.state[3]}/></Col>
             </Row>
             <Row noGutters>
-                <Col md="auto" className="col-edit"><Space pos={4} editGrid={this.editGrid}/></Col>
-                <Col md="auto" className="col-edit"><Space pos={5} editGrid={this.editGrid}/></Col>
-                <Col md="auto" className="col-edit"><Space pos={6} editGrid={this.editGrid}/></Col>
+                <Col md="auto" className="col-edit"><Space pos={4} editGrid={this.editGrid} symbol={this.state[4]}/></Col>
+                <Col md="auto" className="col-edit"><Space pos={5} editGrid={this.editGrid} symbol={this.state[5]}/></Col>
+                <Col md="auto" className="col-edit"><Space pos={6} editGrid={this.editGrid} symbol={this.state[6]}/></Col>
             </Row>
             <Row noGutters>
-                <Col md="auto" className="col-edit"><Space pos={7} editGrid={this.editGrid}/></Col>
-                <Col md="auto" className="col-edit"><Space pos={8} editGrid={this.editGrid}/></Col>
-                <Col md="auto" className="col-edit"><Space pos={9} editGrid={this.editGrid}/></Col>
+                <Col md="auto" className="col-edit"><Space pos={7} editGrid={this.editGrid} symbol={this.state[7]}/></Col>
+                <Col md="auto" className="col-edit"><Space pos={8} editGrid={this.editGrid} symbol={this.state[8]}/></Col>
+                <Col md="auto" className="col-edit"><Space pos={9} editGrid={this.editGrid} symbol={this.state[9]}/></Col>
             </Row>
         </Container>)
     }

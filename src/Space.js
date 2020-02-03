@@ -7,21 +7,15 @@ import './globalstyles.css';
 class Space extends Component {
     constructor(props) {
         super(props);
-        this.state={
-            symbol:''
-        }
         this.makeMove = this.makeMove.bind(this);
     }
 
     makeMove() {
-        this.setState({
-            symbol:'x'
-        })
         this.props.editGrid(this.props.pos);
     }
 
     render() {
-        return (<Container onClick={() => this.makeMove()}className ="space border border-dark"><Symbol symbol={this.state.symbol}/></Container>)
+        return (<Container onClick={() => this.makeMove()}className ="space border border-dark"><Symbol symbol={this.props.symbol}/></Container>)
     }
 }
 
