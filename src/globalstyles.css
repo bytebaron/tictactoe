@@ -8,3 +8,8 @@
     padding: 0px !important;
     margin:0px !important;
 }
+
+.symbol {
+    font-size: 100px;
+    line-height: 1;
+}
