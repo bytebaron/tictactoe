@@ -13,3 +13,12 @@
     font-size: 100px;
     line-height: 1;
 }
+
+.button-col {
+    display: inline-block;
+}
+
+.button-row {
+    justify-content: flex start;
+    margin-left: 90px !important;
+}
