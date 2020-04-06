@@ -4,14 +4,9 @@ import Space from './Space';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
+import {Link} from "react-router-dom";
 
 import './globalstyles.css';
-
-/*
-
-
-- Do something better than alert for addressing an illegal move 
-*/
 
 class Board extends Component {
     constructor(props) {
